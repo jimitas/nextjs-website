@@ -12,3 +12,4 @@ export type News = {
   publishedAt: string;
   createdAt: string;
 };
+
