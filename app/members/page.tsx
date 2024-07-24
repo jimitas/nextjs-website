@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { getMemberList } from "@/app/_libs/microcms";
+import { TOP_NEWS_LIMIT } from "../_constants";
 import styles from "./page.module.css";
 
 export default async function Page() {
-  const data = await getMemberList();
+  const data = await getMemberList({ limit: TOP_NEWS_LIMIT });
+  
   return (
     <div className={styles.container}>
       {data.contents.length === 0 ? (
