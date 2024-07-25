@@ -99,3 +99,4 @@ export const getAllCategoryList = async () => {
 
   return listData;
 };
+
