@@ -1,9 +1,9 @@
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 // import type { Metadata } from 'next';
-import { getNewsDetail } from '@/app/_libs/microcms';
-import Article from '@/app/_compornents/Article';
-import ButtonLink from '@/app/_compornents/ButtonLink';
-import styles from './page.module.css';
+import { getNewsDetail } from "@/app/_libs/microcms";
+import Article from "@/app/_components/Article";
+import ButtonLink from "@/app/_components/ButtonLink";
+import styles from "./page.module.css";
 
 type Props = {
   params: {
@@ -33,10 +33,10 @@ type Props = {
 //   };
 // }
 
-export default async function Page({ params, searchParams }: Props) {
-  const data = await getNewsDetail(params.slug, {
-    draftKey: searchParams.dk,
-  }).catch(notFound);
+// export default async function Page({ params, searchParams }: Props) {
+export default async function Page({ params }: Props) {
+
+  const data = await getNewsDetail(params.slug).catch(notFound);
 
   return (
     <>

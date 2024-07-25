@@ -1,5 +1,5 @@
-import Hero from "../_compornents/Hero";
-import Sheet from "../_compornents/Sheet";
+import Hero from "../_components/Hero";
+import Sheet from "../_components/Sheet";
 
 type Props = {
   children: React.ReactNode;

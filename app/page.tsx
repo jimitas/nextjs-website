@@ -2,11 +2,10 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { getNewsList } from "./_libs/microcms";
 import { TOP_NEWS_LIMIT } from "./_constants";
-import NewsList from "./_compornents/NewsList";
-import ButtonLink from "./_compornents/ButtonLink";
+import NewsList from "./_components/NewsList";
+import ButtonLink from "./_components/ButtonLink";
 
 export default async function Home() {
-
   const data = await getNewsList({ limit: TOP_NEWS_LIMIT });
 
   return (
