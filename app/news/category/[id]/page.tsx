@@ -1,5 +1,7 @@
-import { getNewsList } from "@/app/_libs/microcms";
+import { getCategoryDetail, getNewsList } from "@/app/_libs/microcms";
+import { notFound } from "next/navigation";
 import NewsList from "@/app/_components/NewsList";
+import Category from "@/app/_components/Category";
 
 type Props = {
   params: {
@@ -8,11 +10,19 @@ type Props = {
 };
 
 export default async function Page({ params }: Props) {
-  const { contents: news } = await getNewsList(
-    {
-    filters: `category[equals]${params.id}`,
-  }
-);
+  const category = await getCategoryDetail(params.id).catch(notFound);
 
-  return <NewsList news={news} />;
+  const { contents: news } = await getNewsList({
+    filters: `category[equals]${params.id}`,
+  });
+
+  return (
+    <>
+      <p>
+        <Category category={category} />
+        の一覧
+      </p>
+      <NewsList news={news} />
+    </>
+  );
 }
