@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <>
       <NewsList news={news} />
-      <Pagination totalCount={totalCount}/>
+      <Pagination totalCount={totalCount} />
     </>
   );
 }
